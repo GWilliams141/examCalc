@@ -1,0 +1,14 @@
+#header {
+	border-style: "solid";
+	border-color: "red";
+}
+
+#user_input {
+	border-style: "solid";
+	border-color: "blue";
+}
+
+#answer {
+	border-style: "solid";
+	border-color: "green";
+}
