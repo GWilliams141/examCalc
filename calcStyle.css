@@ -1,14 +1,53 @@
-#header {
-	border-style: "solid";
-	border-color: "red";
+#header_bar {
+	border: 1px solid red;
+	height: 100px;
+	width: 1200px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#title_container {
+	height: 100%;
+	width: 1030px;
+	border: 1px solid gold;
+	text-align: center;
+	display: inline-block;
+}
+
+#title {
+	color: red;
+}
+
+#left_pic {
+	display: block;
+	width: 80px;
+	height: 100%;
+	float: left;
+}
+
+#right_pic {
+	display: block;
+	width: 80px;
+	height: 100%;
+	float: right;
+}
+
+#container {
+	border: 2px solid black;
+	width: 1200px;
+	height: 450px;
+	margin-left: auto;
+	margin-right: auto;
 }
 
 #user_input {
-	border-style: "solid";
-	border-color: "blue";
+	border: 1px solid blue;
+	height: 100%;
+	width: 60%;
+	float: left;
 }
 
 #answer {
-	border-style: "solid";
-	border-color: "green";
+	border: 1px solid green;
+	height: 100%;
 }
