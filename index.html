@@ -12,17 +12,52 @@
 
 	<body>
 		<div id="header_bar">
-			<img id="left_pic" class="header" src="imagesCalc/happyCalculator.png"
-					alt="calculator">
+			<img id="left_pic" class="header" src="imagesCalc/happyCalc.png" alt="calculator">
 			<div id="title_container" class="header">
 				<h1 id="title">Grade Calculator</h1>
 			</div>
-			<img id="right_pic" class="header" src="goodGrade.jpg" alt="calculator">
+			<img id="right_pic" class="header" src="imagesCalc/goodGrade.jpg" alt="calculator">
 		</div>
 
 		<div id="container">
 			<div id="user_input">
-				user side -- containts table and input and what not.
+				<p>
+					Desired Overall Grade:
+					<!--Think about gibing default value-->
+					<input type="text" name="overallGrade">
+					<!-- Try to add space between input box and slider-->
+					<input type="range" min="0" max="100">
+				</p>
+
+				<p>
+					Grade component weights are in 
+					<select>
+						<option>Percentage</option>
+						<option>Points</option>
+					</select>
+				</p>
+
+				<br>
+				<br>
+
+				<table id="table">
+					<tr>
+						<th>Component Weight</th>
+						<th>Grade in Componenet</th>
+					</tr>	
+					<tr>
+						<td><input type="text">%</td>
+						<td><input type="text">%</td>
+					</tr>
+					<tr>
+						<td><input type="text">%</td>
+						<td><input type="text">%</td>
+					</tr>
+					<tr>
+						<td><input type="text">%</td>
+						<td><input type="text">%</td>
+					</tr>
+				</table>
 			</div>
 
 			<div id="answer">

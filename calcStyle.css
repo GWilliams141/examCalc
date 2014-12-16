@@ -8,7 +8,6 @@
 
 .header {
 	display:inline-block;
-	float:left;
 }
 
 #title_container {
@@ -16,12 +15,15 @@
 	width:1035px;
 	border:1px solid gold;
 	text-align:center;
+	float:left;
 }
 
 #title {
 	color: red;
 	font-family:"Comic Sans MS";
-	font-size:3em;
+	font-size:5.25em;
+	margin:auto;
+	line-height:100%;
 }
 
 /*Is it possible to put the 
@@ -46,6 +48,10 @@
 	height: 450px;
 	margin-left: auto;
 	margin-right: auto;
+}
+
+#table {
+	width:100%;
 }
 
 #user_input {
