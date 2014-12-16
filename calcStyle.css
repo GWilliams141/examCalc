@@ -1,35 +1,43 @@
 #header_bar {
-	border: 1px solid red;
-	height: 100px;
-	width: 1200px;
-	margin-left: auto;
-	margin-right: auto;
+	border:1px solid red;
+	height:100px;
+	width:1200px;
+	margin-left:auto;
+	margin-right:auto;
+}
+
+.header {
+	display:inline-block;
+	float:left;
 }
 
 #title_container {
-	height: 100%;
-	width: 1030px;
-	border: 1px solid gold;
-	text-align: center;
-	display: inline-block;
+	height:100%;
+	width:1035px;
+	border:1px solid gold;
+	text-align:center;
 }
 
 #title {
 	color: red;
+	font-family:"Comic Sans MS";
+	font-size:3em;
 }
 
+/*Is it possible to put the 
+ *images in a second class? */
 #left_pic {
-	display: block;
-	width: 80px;
-	height: 100%;
-	float: left;
+	vertical-align:top;
+	width:80px;
+	height:100%;
+	float:left;
 }
 
 #right_pic {
-	display: block;
-	width: 80px;
-	height: 100%;
-	float: right;
+	vertical-align:top;
+	width:80px;
+	height:100%;
+	float:right;
 }
 
 #container {
