@@ -20,48 +20,114 @@
 		</div>
 
 		<div id="container">
-			<div id="user_input">
-				<p>
-					Desired Overall Grade:
-					<!--Think about gibing default value-->
-					<input type="text" name="overallGrade">
-					<!-- Try to add space between input box and slider-->
-					<input type="range" min="0" max="100">
-				</p>
+			<div id="user">
+				<div id="opt_inst">
+					<div id="instructions">
+						<h3>Instructions</h3>
+						<p>
+							This calculator determines the grade you will need on
+							a final exam in order to get a desierd grade in the
+							class. Enter the desired overall grade first, then
+							enter the each component of your grade. For each
+							component, the name is optional. Enter the weight
+							of the component in percentage and choose whether to
+							enter your grade in the component in points or 
+							percentage. If you enter it in points, make sure you
+							add the max points possible for each section, as well
+							as the amount of points that the final is worth.
+						</p>
+					</div>
+				</div>
 
-				<p>
-					Grade component weights are in 
-					<select>
-						<option>Percentage</option>
-						<option>Points</option>
-					</select>
-				</p>
+				<div id="user_input">
+					<p>
+						Desired Overall Grade:
+						<!--Think about gibing default value-->
+						<input type="text" name="overallGrade">
+						<!-- Try to add space between input box and slider-->
+						<input type="range" min="0" max="100">
+					</p>
 
-				<br>
-				<br>
+					<p>
+						Grade component weights are in 
+						<select>
+							<option>Percentage</option>
+							<option>Points</option>
+						</select>
+					</p>
 
-				<table id="table">
-					<tr>
-						<th>Component Weight</th>
-						<th>Grade in Componenet</th>
-					</tr>	
-					<tr>
-						<td><input type="text">%</td>
-						<td><input type="text">%</td>
-					</tr>
-					<tr>
-						<td><input type="text">%</td>
-						<td><input type="text">%</td>
-					</tr>
-					<tr>
-						<td><input type="text">%</td>
-						<td><input type="text">%</td>
-					</tr>
-				</table>
+					<br>
+					<br>
+
+					<table id="table">
+						<tr>
+							<th>Component Name</th>
+							<th>Component Weight</th>
+							<th>Grade in Componenet</th>
+						</tr>	
+						<tr>
+							<!--Add placeholder in javascript so it works on IE-->
+							<td><input type="text" placeholder="E.g., Exams"></td>
+							<td><input type="text" placeholder="E.g., 20%">%</td>
+							<td><input type="text" placeholder="E.g., 85%">%</td>
+						</tr>
+						<tr>
+							<td><input type="text"></td>
+							<td><input type="text">%</td>
+							<td><input type="text">%</td>
+						</tr>
+						<tr>
+							<td><input type="text"></td>
+							<td><input type="text">%</td>
+							<td><input type="text">%</td>
+						</tr>
+						<tr>
+							<td><input type="text"></td>
+							<td><input type="text">%</td>
+							<td><input type="text">%</td>
+						</tr>
+						<tr>
+							<td><input type="text"></td>
+							<td><input type="text">%</td>
+							<td><input type="text">%</td>
+						</tr>
+						<tr>
+							<td><input type="text"></td>
+							<td><input type="text">%</td>
+							<td><input type="text">%</td>
+						</tr>
+						<tr>
+							<td><input type="text"></td>
+							<td><input type="text">%</td>
+							<td><input type="text">%</td>
+						</tr>
+						<tr>
+							<td><input type="text"></td>
+							<td><input type="text">%</td>
+							<td><input type="text">%</td>
+						</tr>
+						<tr>
+							<td><input type="text"></td>
+							<td><input type="text">%</td>
+							<td><input type="text">%</td>
+						</tr>
+						<tr>
+							<td><input type="text"></td>
+							<td><input type="text">%</td>
+							<td><input type="text">%</td>
+						</tr>
+					</table>
+				</div>
 			</div>
 
 			<div id="answer">
-				answer side - says what you need to get.
+				<p>You will need a</p>
+				<p><span id="needed">75</span></p>
+				<p>
+					on the final exam in order to get a
+					<span id="wanted">90</span>
+					in the class.
+				</p>
 			</div>
 		</div>
 	</body>
