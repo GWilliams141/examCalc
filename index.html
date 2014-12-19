@@ -4,39 +4,41 @@
 
 	<head>
 		<title>Grade Calculator</title>
-		<link rel="stylesheet" type="text/css" href="calcStyle.css">
+		<link rel="stylesheet" type="text/css" href="styleCalc.css">
 		<meta name="author" content="Graham Williams">
-		<meta name="description" content="Final Exam calculator for overall grade">
+		<meta name="description" content="Final Exam calculator for overall
+                grade">
 		<meta name="keywords" content="Grade Calculator, Final, Overall">
 	</head>
 
 	<body>
 		<div id="header_bar">
-			<img id="left_pic" class="header" src="imagesCalc/happyCalc.png" alt="calculator">
+			<img id="left_pic" class="header" src="imagesCalc/happyCalc.png"
+                    alt="calculator">
 			<div id="title_container" class="header">
 				<h1 id="title">Grade Calculator</h1>
 			</div>
-			<img id="right_pic" class="header" src="imagesCalc/goodGrade.jpg" alt="calculator">
+			<img id="right_pic" class="header" src="imagesCalc/goodGrade.jpg"
+                    alt="calculator">
 		</div>
 
 		<div id="container">
 			<div id="user">
-				<div id="opt_inst">
-					<div id="instructions">
-						<h3>Instructions</h3>
-						<p>
-							This calculator determines the grade you will need on
-							a final exam in order to get a desierd grade in the
-							class. Enter the desired overall grade first, then
-							enter the each component of your grade. For each
-							component, the name is optional. Enter the weight
-							of the component in percentage and choose whether to
-							enter your grade in the component in points or 
-							percentage. If you enter it in points, make sure you
-							add the max points possible for each section, as well
-							as the amount of points that the final is worth.
-						</p>
-					</div>
+				<div id="instructions">
+                    <h3 id="inst_title">Instructions</h3>
+                    <ol id="inst_list">
+                        <li>Enter your desired overall grade.</li>
+                        <li>Select points or percentage depending on what
+                                your grade is measured in.</li>
+                        <li>Enter the name of each component (optional).</li>
+                        <li>Enter the weight of each component. This is what
+                                percentage or how many points the component
+                                is wort.</li>
+                        <li>Enter your percentage in the each component.</li>
+                        <li>Hit the calculate button!</li>
+                        <li>Adjust the overall grade slider to see what you
+                                will need for differen grades (optional).</li>
+                    </ol>
 				</div>
 
 				<div id="user_input">
@@ -51,14 +53,12 @@
 
 					<p>
 						Grade component weights are in 
+                        <!--Maybe make a default select option that says "select something"-->
 						<select>
 							<option>Percentage</option>
 							<option>Points</option>
 						</select>
 					</p>
-
-					<br>
-					<br>
 
 					<table id="table">
 						<tr>
@@ -87,50 +87,37 @@
 							<td><input type="text">%</td>
 							<td><input type="text">%</td>
 						</tr>
-						<tr>
-							<td><input type="text"></td>
-							<td><input type="text">%</td>
-							<td><input type="text">%</td>
-						</tr>
-						<tr>
-							<td><input type="text"></td>
-							<td><input type="text">%</td>
-							<td><input type="text">%</td>
-						</tr>
-						<tr>
-							<td><input type="text"></td>
-							<td><input type="text">%</td>
-							<td><input type="text">%</td>
-						</tr>
-						<tr>
-							<td><input type="text"></td>
-							<td><input type="text">%</td>
-							<td><input type="text">%</td>
-						</tr>
-						<tr>
-							<td><input type="text"></td>
-							<td><input type="text">%</td>
-							<td><input type="text">%</td>
-						</tr>
-						<tr>
-							<td><input type="text"></td>
-							<td><input type="text">%</td>
-							<td><input type="text">%</td>
-						</tr>
 					</table>
+
+                    <br>
+
+                    <div id="options">
+                        <button id="add" type="button">Add Row</button>
+                        <button id="remove" type="button">Remove Row</button>
+                    </div>
 				</div>
+
 			</div>
 
-			<div id="answer">
-				<p>You will need a</p>
-				<p><span id="needed">75</span></p>
-				<p>
-					on the final exam in order to get a
-					<span id="wanted">90</span>
-					in the class.
-				</p>
+			<div id="output">
+                <button id="calculate" type="button">Calculate</button>
+
+                <div id="answer">
+                    <p>You will need to get a</p>
+                    <p><span id="needed">75%</span></p>
+                    <p>
+                        on the final exam in order to get a
+                        <span id="wanted">90%</span>
+                        in the class.
+                    </p>
+                </div>
 			</div>
 		</div>
+
 	</body>
+       
+    <!--Script is ab bottom so that it loads after HTML. For larger websites
+    may want to use more complex sychronized loading-->
+    <script src="jsCalc.js"></script>
 
 </html>
