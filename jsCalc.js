@@ -1,6 +1,7 @@
 document.getElementById("desired").addEventListener("blur", textChange);
 document.getElementById("slider").addEventListener("change", slideChange);
 document.getElementById("add").addEventListener("click", addRow);
+document.getElementById("remove").addEventListener("click", removeRow);
 
 function textChange() {
     var newDog = document.getElementById("desired").value;
@@ -14,8 +15,7 @@ function slideChange() {
 
 function addRow() {
     var tableList = document.getElementsByTagName("tr");
-    var numRows = tableList.length - 1;
-    console.log("number of rows: " + numRows);
+    var rowId = "row" + tableList.length;
 
     var newRow = document.createElement("tr");
 
@@ -40,6 +40,21 @@ function addRow() {
     newRow.appendChild(newCell1);
     newRow.appendChild(newCell2);
     newRow.appendChild(newCell3);
+    // Assign an id so you can delete it later
+    newRow.setAttribute("id", rowId);
 
-    document.getElementById("table").appendChild(newRow);
+    document.getElementById("entries").appendChild(newRow);
+}
+
+function removeRow() {
+    var tableList = document.getElementsByTagName("tr");
+    var idToRemove = "row" + (tableList.length - 1);
+    var rowToRemove = document.getElementById(idToRemove);
+    var table = document.getElementById("entries");
+    
+    if (idToRemove !== "row1") {
+        table.removeChild(rowToRemove);
+    } else {
+        // Send error or somehow inform user that they can't do this
+    }
 }
