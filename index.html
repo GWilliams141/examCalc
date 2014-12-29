@@ -44,11 +44,13 @@
 				<div id="user_input">
 					<p>
 						Desired Overall Grade:
-						<!--Think about gibing default value-->
-						<input type="text" placeholder="E.g., 75">%
+						<!--Maybe make type text and then change later-->
+						<input id="desired" type="text" min="0" max="100"
+                                placeholder="E.g., 75">%
 						&nbsp&nbsp&nbsp&nbsp
 						<!-- Try to add space between input box and slider-->
-						<input type="range" min="0" max="100" value="75">
+						<input id="slider" type="range" min="0" max="100"
+                                value="75">
 					</p>
 
 					<p>
@@ -118,6 +120,6 @@
        
     <!--Script is ab bottom so that it loads after HTML. For larger websites
     may want to use more complex sychronized loading-->
-    <script src="jsCalc.js"></script>
+    <script type="text/javascript" src="jsCalc.js"></script>
 
 </html>

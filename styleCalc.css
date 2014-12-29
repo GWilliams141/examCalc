@@ -9,8 +9,7 @@ body {
 	width:1200px;
 	margin-left:auto;
 	margin-right:auto;
-	/* Think about making header line
-	 * not so close to header */
+	/* Think about making header line not so close to header */
 	border-bottom:2px solid black;
 }
 
@@ -100,13 +99,13 @@ body {
 }
 
 #add {
-    height:40px;
+    height:25px;
     width:220px;
     float:left;
 }
 
 #remove {
-    height:40px;
+    height:25px;
     width:220px;
 }
 
