@@ -2,6 +2,7 @@ document.getElementById("desired").addEventListener("blur", textChange);
 document.getElementById("slider").addEventListener("change", slideChange);
 document.getElementById("add").addEventListener("click", addRow);
 document.getElementById("remove").addEventListener("click", removeRow);
+document.getElementById("calculate").addEventListener("click", calculate);
 
 function textChange() {
     var newDog = document.getElementById("desired").value;
@@ -57,4 +58,40 @@ function removeRow() {
     } else {
         // Send error or somehow inform user that they can't do this
     }
+}
+
+function calculate() {
+    var weights;
+    var scores;
+    var needed;
+    var wanted;
+    var woFinal; // Percentage without final
+    var finalWorth;
+    var cells; // Does this need to be at top if it's only used in for loop?
+
+    var tableList = document.getElementsByTagName("tr");
+    var numRows = tableList.length - 1; // This includes blank rows, should
+                                        // change
+    
+    weights = [];
+    scores = [];
+    woFinal = 0;
+    finalWorth = 100;
+    wanted = document.getElementById("desired").value;
+
+    for (i = 0; i < numRows; ++i) {
+        cells = document.getElementsByTagName("td");
+        
+        weights[i] = cells[(i * 3) + 1].childNodes[0].value;
+        scores[i] = cells[(i * 3) + 2].childNodes[0].value;
+        woFinal += (weights[i]) * (scores[i]/100);
+        finalWorth -= weights[i];
+    }
+
+    // Might want to split this up into a couple of lines
+    needed = ((-((woFinal - wanted)/finalWorth)) * 100);
+    needed = Math.ceil(needed * 100)/100;
+
+    document.getElementById("needed").innerHTML = needed + "%";
+    document.getElementById("wanted").innerHTML = wanted;
 }
