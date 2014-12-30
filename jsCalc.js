@@ -16,20 +16,28 @@ function slideChange() {
 }
 
 function addRow() {
+    var newRow;
+
     var tableList = document.getElementsByTagName("tr");
     var rowId = "row" + tableList.length;
 
-    var newRow = document.createElement("tr");
+    if (document.getElementById("units").value === "Percentage") {
+        newRow = createNewPercentageRow(rowId);
+    } else {
+        newRow = createNewPointsRow(rowId);
+    }
 
+    document.getElementById("entries").appendChild(newRow);
+}
+
+function createNewPercentageRow(rowId) {
+    var newRow = document.createElement("tr");
     var newCell1 = document.createElement("td");
     var newCell2 = document.createElement("td");
     var newCell3 = document.createElement("td");
-
     var newTextbox1 = document.createElement("input");
-    //input.name would assign it an id? I think...
     var newTextbox2 = document.createElement("input");
     var newTextbox3 = document.createElement("input");
-    // Why can't I use the same percent node for both boxes?
     var percent1 = document.createTextNode("%");
     var percent2 = document.createTextNode("%");
 
@@ -45,7 +53,39 @@ function addRow() {
     // Assign an id so you can delete it later
     newRow.setAttribute("id", rowId);
 
-    document.getElementById("entries").appendChild(newRow);
+    return newRow;
+}
+
+function createNewPointsRow(rowId) {
+    var newRow = document.createElement("tr");
+    var newCell1 = document.createElement("td");
+    var newCell2 = document.createElement("td");
+    var newCell3 = document.createElement("td");
+    var newTextbox1 = document.createElement("input");
+    var newTextbox2 = document.createElement("input");
+    var newTextbox3 = document.createElement("input");
+    var newTextbox4 = document.createElement("input");
+    var percent = document.createTextNode("%");
+    var slash = document.createTextNode(" / ");
+    
+    newCell1.appendChild(newTextbox1);
+    newCell2.appendChild(newTextbox2);
+    newCell2.appendChild(percent);
+    newCell3.appendChild(newTextbox3);
+    newCell3.appendChild(slash);
+    newCell3.appendChild(newTextbox4);
+
+    newTextbox3.style["width"] = "65px";
+    newTextbox4.style["width"] = "65px";
+    
+    newRow.appendChild(newCell1);
+    newRow.appendChild(newCell2);
+    newRow.appendChild(newCell3);
+
+    // Assign an id so you can delete it later
+    newRow.setAttribute("id", rowId);
+
+    return newRow;
 }
 
 function removeRow() {
