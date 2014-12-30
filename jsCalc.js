@@ -1,8 +1,9 @@
 document.getElementById("desired").addEventListener("blur", textChange);
-document.getElementById("slider").addEventListener("change", slideChange);
+document.getElementById("slider").addEventListener("input", slideChange);
 document.getElementById("add").addEventListener("click", addRow);
 document.getElementById("remove").addEventListener("click", removeRow);
 document.getElementById("calculate").addEventListener("click", calculate);
+document.getElementById("units").addEventListener("change", unitChange);
 
 function textChange() {
     var newDog = document.getElementById("desired").value;
@@ -78,10 +79,9 @@ function calculate() {
     woFinal = 0;
     finalWorth = 100;
     wanted = document.getElementById("desired").value;
+    cells = document.getElementsByTagName("td");
 
     for (i = 0; i < numRows; ++i) {
-        cells = document.getElementsByTagName("td");
-        
         weights[i] = cells[(i * 3) + 1].childNodes[0].value;
         scores[i] = cells[(i * 3) + 2].childNodes[0].value;
         woFinal += (weights[i]) * (scores[i]/100);
@@ -94,4 +94,51 @@ function calculate() {
 
     document.getElementById("needed").innerHTML = needed + "%";
     document.getElementById("wanted").innerHTML = wanted;
+}
+
+function unitChange() {
+    if (document.getElementById("units").value === "Points") {
+        toPoints();
+    } else {
+        toPercentages();
+    }
+}
+
+function toPoints() {
+    var rowId;
+    var parentRow;
+    var childData;
+    var newData;
+    var newTextbox1;
+    var newTextbox2;
+    var slash;
+
+    var tableList = document.getElementsByTagName("tr");
+    var numRows = tableList.length - 1;
+    var cells = document.getElementsByTagName("td");
+
+
+    for (i = 0; i < numRows; ++i) {
+        // Must define these within so that we can use for each new cell
+        newTextbox1 = document.createElement("input");
+        newTextbox2 = document.createElement("input");
+        slash = document.createTextNode(" / ");
+        newTextbox1.style["width"] = "65px";
+        newTextbox2.style["width"] = "65px";
+
+        rowId = "row" + (i + 1);
+        parentRow = document.getElementById(rowId);
+        // NOTE: The formula is (i * 2) + 2 because one cell gets removed each
+        // time and so the var cells changes. If it didn't, it would be
+        // (i * 3) + 2
+        childData = cells[(i * 3) + 2];
+
+        newData = document.createElement("td");
+        newData.appendChild(newTextbox1);
+        newData.appendChild(slash);
+        newData.appendChild(newTextbox2);
+
+        parentRow.replaceChild(newData, childData);
+    }
+
 }
