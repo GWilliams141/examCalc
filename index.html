@@ -42,25 +42,27 @@
 				</div>
 
 				<div id="user_input">
-					<p>
-						Desired Overall Grade:
-						<!--Maybe make type text and then change later-->
-						<input id="desired" type="text" min="0" max="100"
-                                placeholder="E.g., 75">%
-						&nbsp&nbsp&nbsp&nbsp
-						<!-- Try to add space between input box and slider-->
-						<input id="slider" type="range" min="0" max="100"
-                                value="75">
-					</p>
+                    <div id="set_up">
+                        <p>
+                            Desired Overall Grade:
+                            <!--Maybe make type text and then change later-->
+                            <input id="desired" type="text" min="0" max="100"
+                                    placeholder="E.g., 75">%
+                            &nbsp&nbsp&nbsp&nbsp
+                            <!-- Try to add space between input box and slider-->
+                            <input id="slider" type="range" min="0" max="100"
+                                    value="75">
+                        </p>
 
-					<p>
-						Grade component weights are in 
-                        <!--Maybe make a default select option that says "select something"-->
-						<select id="units">
-							<option>Percentage</option>
-							<option>Points</option>
-						</select>
-					</p>
+                        <p>
+                            Grade component weights are in 
+                            <!--Maybe make a default select option that says "select something"-->
+                            <select id="units">
+                                <option>Percentage</option>
+                                <option>Points</option>
+                            </select>
+                        </p>
+                    </div>
 
 					<table>
                         <tbody id="entries">

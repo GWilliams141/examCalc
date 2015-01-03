@@ -5,6 +5,8 @@ document.getElementById("remove").addEventListener("click", removeRow);
 document.getElementById("calculate").addEventListener("click", calculate);
 document.getElementById("units").addEventListener("change", unitChange);
 
+var scored = false;
+
 function textChange() {
     var newDog = document.getElementById("desired").value;
     document.getElementById("slider").value = newDog;
@@ -13,6 +15,10 @@ function textChange() {
 function slideChange() {
     var newDog = document.getElementById("slider").value;
     document.getElementById("desired").value = newDog;
+
+    if (scored) {
+        calculate();
+    }
 }
 
 function addRow() {
@@ -134,13 +140,15 @@ function calculate() {
 
     document.getElementById("needed").innerHTML = needed + "%";
     document.getElementById("wanted").innerHTML = wanted;
+
+    scored = true;
 }
 
 function unitChange() {
     if (document.getElementById("units").value === "Points") {
         toPoints();
     } else {
-        toPercentages();
+        toPercentage();
     }
 }
 
@@ -149,14 +157,25 @@ function toPoints() {
     var parentRow;
     var childData;
     var newData;
-    var newTextbox1;
-    var newTextbox2;
-    var slash;
+    var newTextbox1, newTextbox2, finalWorth;
+    var paraText1, paraText2, slash;
+    var newPara;
 
     var tableList = document.getElementsByTagName("tr");
     var numRows = tableList.length - 1;
     var cells = document.getElementsByTagName("td");
 
+    // First create the final worth textbox above the table
+    paraText = document.createTextNode("Final Exam is worth ");
+    paraText2 = document.createTextNode(" points");
+    finalWorth = document.createElement("input");
+    newPara = document.createElement("p");
+    
+    newPara.appendChild(paraText);
+    newPara.appendChild(finalWorth);
+    newPara.appendChild(paraText2);
+    newPara.setAttribute("id", "final_worth");
+    document.getElementById("set_up").appendChild(newPara);
 
     for (i = 0; i < numRows; ++i) {
         // Must define these within so that we can use for each new cell
@@ -168,9 +187,6 @@ function toPoints() {
 
         rowId = "row" + (i + 1);
         parentRow = document.getElementById(rowId);
-        // NOTE: The formula is (i * 2) + 2 because one cell gets removed each
-        // time and so the var cells changes. If it didn't, it would be
-        // (i * 3) + 2
         childData = cells[(i * 3) + 2];
 
         newData = document.createElement("td");
@@ -180,5 +196,34 @@ function toPoints() {
 
         parentRow.replaceChild(newData, childData);
     }
+}
 
+function toPercentage() {
+    var rowId;
+    var newTextbox;
+    var percent;
+    var newData;
+
+    var tableList = document.getElementsByTagName("tr");
+    var numRows = tableList.length - 1;
+    var cells = document.getElementsByTagName("td");
+
+    for (i = 0; i < numRows; ++i) {
+        newTextbox = document.createElement("input");
+        percent = document.createTextNode("%");
+
+        rowId = "row" + (i + 1);
+        parentRow = document.getElementById(rowId);
+        childData = cells[(i * 3) + 2];
+
+        newData = document.createElement("td");
+        newData.appendChild(newTextbox);
+        newData.appendChild(percent);
+
+        parentRow.replaceChild(newData, childData);
+    }
+
+    // Now remove final worth points line
+    document.getElementById("set_up").removeChild(
+            document.getElementById("final_worth"));
 }
