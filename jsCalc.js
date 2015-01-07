@@ -44,8 +44,12 @@ function createNewPercentageRow(rowId) {
     var newTextbox1 = document.createElement("input");
     var newTextbox2 = document.createElement("input");
     var newTextbox3 = document.createElement("input");
-    var percent1 = document.createTextNode("%");
-    var percent2 = document.createTextNode("%");
+    var percent1 = document.createTextNode(" %");
+    var percent2 = document.createTextNode(" %");
+
+    newTextbox1.setAttribute("class", "col1");
+    newTextbox2.setAttribute("class", "col2");
+    newTextbox3.setAttribute("class", "col3");
 
     newCell1.appendChild(newTextbox1);
     newCell2.appendChild(newTextbox2);
@@ -71,8 +75,11 @@ function createNewPointsRow(rowId) {
     var newTextbox2 = document.createElement("input");
     var newTextbox3 = document.createElement("input");
     var newTextbox4 = document.createElement("input");
-    var percent = document.createTextNode("%");
+    var percent = document.createTextNode(" %");
     var slash = document.createTextNode(" / ");
+
+    newTextbox1.setAttribute("class", "col1");
+    newTextbox2.setAttribute("class", "col2");
     
     newCell1.appendChild(newTextbox1);
     newCell2.appendChild(newTextbox2);
@@ -182,8 +189,9 @@ function toPoints() {
         newTextbox1 = document.createElement("input");
         newTextbox2 = document.createElement("input");
         slash = document.createTextNode(" / ");
-        newTextbox1.style["width"] = "65px";
-        newTextbox2.style["width"] = "65px";
+
+        newTextbox1.setAttribut("class", "col_point");
+        newTextbox2.setAttribut("class", "col_point");
 
         rowId = "row" + (i + 1);
         parentRow = document.getElementById(rowId);
@@ -210,6 +218,7 @@ function toPercentage() {
 
     for (i = 0; i < numRows; ++i) {
         newTextbox = document.createElement("input");
+        newTextbox.setAttribute("class", "col3");
         percent = document.createTextNode("%");
 
         rowId = "row" + (i + 1);
