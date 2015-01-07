@@ -99,11 +99,16 @@ body {
 }
 
 .col_point {
-    width:35%;
+    width:10%;
 }
 
 #inst_title {
     text-align:center;
+}
+
+table, tr, td, th {
+    border:1px solid black;
+    border-collapse:collapse;
 }
 
 #inst_list {

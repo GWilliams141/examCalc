@@ -190,8 +190,6 @@ function toPoints() {
         newTextbox2 = document.createElement("input");
         slash = document.createTextNode(" / ");
 
-        newTextbox1.setAttribut("class", "col_point");
-        newTextbox2.setAttribut("class", "col_point");
 
         rowId = "row" + (i + 1);
         parentRow = document.getElementById(rowId);
@@ -201,6 +199,9 @@ function toPoints() {
         newData.appendChild(newTextbox1);
         newData.appendChild(slash);
         newData.appendChild(newTextbox2);
+
+        newTextbox1.setAttribute("class", "col_point");
+        newTextbox2.setAttribute("class", "col_point");
 
         parentRow.replaceChild(newData, childData);
     }
