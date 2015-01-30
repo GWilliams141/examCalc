@@ -2,7 +2,7 @@ document.getElementById("desired").addEventListener("blur", textChange);
 document.getElementById("slider").addEventListener("input", slideChange);
 document.getElementById("add").addEventListener("click", addRow);
 document.getElementById("remove").addEventListener("click", removeRow);
-document.getElementById("calculate").addEventListener("click", calculate);
+document.getElementById("calculate").addEventListener("click", tryCalculate);
 document.getElementById("units").addEventListener("change", unitChange);
 
 var scored = false;
@@ -111,6 +111,35 @@ function removeRow() {
         table.removeChild(rowToRemove);
     } else {
         // Send error or somehow inform user that they can't do this
+    }
+}
+
+function filledOutCorrectly() {
+    var cells;
+
+    cells = document.getElementsByTagName("td");
+    for (i = 1; i < cells.length - 1; i += 3) {
+        // Check weight
+        if(!cells[i].childNodes[0].value.match(/\S/)) {
+            // Still haven't checked for incorrect values
+            return false;
+        }
+
+        // Check worth
+        if(!cells[i + 1].childNodes[0].value.match(/\S/)) {
+            // Still haven't checked for incorrect values
+            return false;
+        }
+    }
+
+    return true;
+}
+
+function tryCalculate() {
+    if (filledOutCorrectly()) {
+        calculate();
+    } else {
+        alert("Make sure all necessary textboxes are filled out and that they have the correct types of input");
     }
 }
 
