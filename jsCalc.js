@@ -17,7 +17,10 @@ function slideChange() {
     document.getElementById("desired").value = newDog;
 
     if (scored) {
-        calculate();
+        if(filledOutCorrectly()) {
+            calculate();
+        } else {
+            
     }
 }
 
@@ -116,17 +119,21 @@ function removeRow() {
 
 function filledOutCorrectly() {
     var cells;
+    var weight;
+    var worth;
 
     cells = document.getElementsByTagName("td");
     for (i = 1; i < cells.length - 1; i += 3) {
         // Check weight
-        if(!cells[i].childNodes[0].value.match(/\S/)) {
+        weight = cells[i].childNodes[0].value;
+        if(!weight.match(/\S/) || isNaN(weight)) { // try with just NaN
             // Still haven't checked for incorrect values
             return false;
         }
 
         // Check worth
-        if(!cells[i + 1].childNodes[0].value.match(/\S/)) {
+        worth = cells[i + 1].childNodes[0].value;
+        if(!worth.match(/\S/) || isNaN(worth)) {
             // Still haven't checked for incorrect values
             return false;
         }
